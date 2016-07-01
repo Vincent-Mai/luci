@@ -1,8 +1,7 @@
 --[[
 LuCI - Lua Configuration Interface
 
-Copyright 2008 Steven Barth <steven@midlink.org>
-Copyright 2014 HackPascal <hackpascal@gmail.com>
+Copyright 2016 Weijie Gao <hackpascal@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -20,12 +19,8 @@ sa = m:section(NamedSection, "anonymous", "anonymous", translate("Anonymous Sett
 o = sa:option(Flag, "enabled", translate("Enabled"))
 o.default = false
 
-o = sa:option(ListValue, "username", translate("Username"), translate("An actual local user to handle anonymous user"))
+o = sa:option(Value, "username", translate("Username"), translate("An actual local user to handle anonymous user"))
 o.default = "ftp"
-local p_user
-for _, p_user in luci.util.vspairs(luci.util.split(luci.sys.exec("cat /etc/passwd | cut -f 1 -d :"))) do
-	o:value(p_user)
-end
 
 o = sa:option(Value, "root", translate("Root directory"))
 o.default = "/home/ftp"
