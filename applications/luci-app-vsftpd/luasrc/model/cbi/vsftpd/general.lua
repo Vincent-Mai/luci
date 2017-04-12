@@ -1,7 +1,8 @@
 --[[
 LuCI - Lua Configuration Interface
 
-Copyright 2016 Weijie Gao <hackpascal@gmail.com>
+Copyright 2008 Steven Barth <steven@midlink.org>
+Copyright 2014 HackPascal <hackpascal@gmail.com>
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -80,6 +81,7 @@ sc = m:section(NamedSection, "connection", "connection", translate("Connection S
 
 o = sc:option(Flag, "portmode", translate("Enable PORT mode"))
 o = sc:option(Flag, "pasvmode", translate("Enable PASV mode"))
+o = sc:option(Flag, "pasvpss", translate("Disable PASV Security Check"))
 
 o = sc:option(ListValue, "ascii", translate("ASCII mode"))
 o:value("disabled", translate("Disabled"))
